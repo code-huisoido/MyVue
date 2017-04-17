@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else>
+            Not A/B
+        </div>
+    </div>
+
+    <div id="app2">
+        <template v-if="type">
+            <strong>hello</strong>
+            <em>world</em>
+        </template>
+        <template v-else>
+            <strong>world</strong>
+            <em>hello</em>
+        </template>
+    </div>
+    
+    <!-- 以下代码如同style="display:none;" -->
+    <div id="app3">
+        <div v-show="ok">v-show</div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el : "#app",
+        data : {
+            type : 'C'
+        }
+    });
+
+    var app2 = new Vue({
+        el : "#app2",
+        data : {
+            type : false
+        }
+    });
+
+    var app3 = new Vue({
+        el : "#app3",
+        data : {
+            ok : false
+        }
+    });
+</script>
+</html>
